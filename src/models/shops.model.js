@@ -3,16 +3,16 @@ const Schema = mongoose.Schema
 
 const schema = new Schema ({
         name: { type: String, required: true },
-        contact: [{
-            homePage: { type: String, required: true },
+        contact: {
+            homepage: { type: String, required: true },
             phone: { type: String, required: true },
-        }],
-        location: [{
+        },
+        location: {
             city: { type: String, required: true },
             address: { type: String, required: true },
             postcode: { type: String },
             phone: { type: String, required: true }
-        }],
+        },
         products: [{
             name: { type: String, required: true },
             paper: { type: String, required: true },
