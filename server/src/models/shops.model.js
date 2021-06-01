@@ -14,9 +14,9 @@ const schema = new Schema ({
             phone: { type: String, required: true }
         },
         products: [{
-            name: { type: String, required: true },
-            paper: { type: String, required: true },
-            price: { type: Number, required: true }
+            name: { type: String},
+            paper: { type: String},
+            price: { type: Number}
         }]
     })
 
