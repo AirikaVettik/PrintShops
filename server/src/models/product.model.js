@@ -9,4 +9,4 @@ const schema = new Schema ({
 
 schema.set('toJSON', { virtuals: true })
 
-module.exports = mongoose.model('products', schema)
+module.exports = mongoose.model('product', schema )
