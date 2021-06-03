@@ -1,10 +1,10 @@
 const db = require('../db')
-const Shops = db.Shops
+const Products = db.Products
 
 module.exports = async function (req, res) {
     try {
       const result = [
-        await Shops.find({}).lean().exec()
+        await Products.find({}).lean().exec()
       ]
       res.status(200).json(result)
     } catch (error) {

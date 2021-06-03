@@ -1,14 +1,13 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
-mongoose.Promise = global.Promise
 mongoose.connect(process.env.MONGODB_URI, { 
     useCreateIndex: true, 
     useNewUrlParser: true, 
-    useUnifiedTopology: true })
-
-
+    useUnifiedTopology: true });
+    
+mongoose.Promise = global.Promise;
 
 module.exports = {
-    Shop: require('./models/shop.model'),
-    Product: require('./models/product.model'),
+    Shops: require('./models/shop.model'),
+    Products: require('./models/product.model'),
 }
