@@ -1,7 +1,7 @@
 module.exports = {
     getShops: require('./getShops.controller'),
     getShopByID: require('./getShopByID.controller'),
-    getShopsByLocation: require('./getShopsByLocation.controller'),
+    getShopsByCity: require('./getShopsByCity.controller'),
 
     getProducts: require('./getProducts.controller'),
     getProductByID: require('./getProductByID.controller'),
