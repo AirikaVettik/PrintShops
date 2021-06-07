@@ -2,13 +2,13 @@
   <div id="nav">
     <ul>
         <router-link id="navlink" to="/" >
-            Eesti trükikojad
+            EESTI TRÜKIKOJAD
         </router-link>
         <router-link id="navlink" to="/newshop" >
-            Lisa uus trükikoda
+            LISA UUS TRÜKIKODA
         </router-link>
-        </ul>
     <hr />
+    </ul>
   </div>
 </template>
 
@@ -27,7 +27,7 @@ export default {
 }
 hr {
   margin-top: 30px;
-  width: 50%;
+  width: 100%;
 }
 #navlink {
   margin: 10px;

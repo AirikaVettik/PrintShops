@@ -9,7 +9,7 @@ Vue.use(VueRouter);
 export const routes = [
   {
     path: '/',
-    name: 'Shops',
+    name: 'Eesti trükikojad',
     components: { default: Shops }
   },   
   {
