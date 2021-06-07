@@ -3,9 +3,6 @@ import VueRouter from 'vue-router';
 import Shops from './../views/Shops';
 import newShop from './../views/newShop';
 import editShop from './../views/newShop';
-import Products from './../views/Products';
-import newProduct from './../views/newProduct';
-import editProduct from './../views/editProduct';
 
 Vue.use(VueRouter);
 
