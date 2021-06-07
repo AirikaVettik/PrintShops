@@ -3,12 +3,21 @@ module.exports = {
     getShopByID: require('./getShopByID.controller'),
     getShopsByCity: require('./getShopsByCity.controller'),
 
+    addShop: require('./addShop.controller'),
+    updateShop: require('./updateShop.controller'),
+    addShopProduct: require('./addShopProduct.contoller'),
+    updateShopProduct: require('./updateShopProduct.controller'),
+    deleteShopProduct: require('./deleteShopProduct.controller'),
+    deleteShop: require('./deleteShop.controller'),
+
+
     getProducts: require('./getProducts.controller'),
     getProductByID: require('./getProductByID.controller'),
 
-    addShop: require('./addShop.controller'),
     addProduct: require('./addProduct.controller'),
+    updateProduct: require('./updateProduct.controller'),
+    deleteProduct: require('./deleteProduct.controller'),
     
-    updateShop: require('./updateShop.controller'),
-    deleteShop: require('./deleteShop.controller'),
+    
+    
 }
