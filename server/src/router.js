@@ -40,4 +40,4 @@ router.get('/products/:id', getProductByID);
 router.patch('/product/:id', updateProduct);
 router.delete('/product/:id', deleteProduct);
 
-module.exports = router
+module.exports = routerm
