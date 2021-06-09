@@ -1,0 +1,509 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "Estonian Print Shops API",
+    "version" : "1.0.0",
+    "title" : "Estonian Print Shops API",
+    "contact" : {
+      "email" : "you@your-company.com"
+    }
+  },
+  "host" : "virtserver.swaggerhub.com",
+  "basePath" : "/AirikaVettik/EstonianPrintShops/1.0.0",
+  "tags" : [ {
+    "name" : "Page Data",
+    "description" : "Operations available to regular developers"
+  } ],
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/shops" : {
+      "get" : {
+        "tags" : [ "Page Data" ],
+        "summary" : "get all shops",
+        "description" : "You can get all the shops in the system.\n",
+        "operationId" : "allShops",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Successfully carried out action the client requested",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Shops"
+              }
+            }
+          },
+          "500" : {
+            "description" : "Server error"
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Default"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/shops/{id}" : {
+      "get" : {
+        "tags" : [ "Page Data" ],
+        "summary" : "get shop by id",
+        "description" : "By passing in the appropriate options, you can search for\navailable inventory in the system\n",
+        "operationId" : "getDhopByID",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ID of Shop that needs to be fetched",
+          "required" : true,
+          "type" : "integer",
+          "maximum" : 10.0,
+          "minimum" : 1.0,
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successfully carried out request by matching criteria",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Shops"
+              }
+            }
+          },
+          "404" : {
+            "description" : "Unknown Shop id or no revisions found."
+          },
+          "500" : {
+            "description" : "Server error"
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Default"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/shop" : {
+      "post" : {
+        "tags" : [ "Page Data" ],
+        "summary" : "create new shop",
+        "description" : "By passing in the appropriate options, you can create a new shop.\n",
+        "operationId" : "createNewPrintingHouse",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Body"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success, a new shop has been created",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/created"
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid request - lack of required parameters, bad ETags etc."
+          },
+          "500" : {
+            "description" : "Server error"
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Default"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/shop/{id}" : {
+      "put" : {
+        "tags" : [ "Page Data" ],
+        "summary" : "update shop",
+        "description" : "By passing in the appropriate options, you update\navailable inventory in the system\n",
+        "operationId" : "updateShop",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ID of shop that needs to be fetched",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/updateBody"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success, shop has been updated",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/created"
+              }
+            }
+          },
+          "404" : {
+            "description" : "Shop not found"
+          },
+          "500" : {
+            "description" : "Server error"
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Default"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/shop/delete/{id}" : {
+      "delete" : {
+        "tags" : [ "Page Data" ],
+        "summary" : "delete shop",
+        "description" : "By passing in the appropriate options, you can delete\navailable inventory in the system\n",
+        "operationId" : "deleteShop",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ID of shop that needs to be fetched",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success.",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/created"
+              }
+            }
+          },
+          "500" : {
+            "description" : "Server error"
+          },
+          "default" : {
+            "description" : "Error",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/Default"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Shops" : {
+      "type" : "object",
+      "required" : [ "id", "name" ],
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "format" : "uuid",
+          "example" : "d290f1ee-6c54-4b01-90e6-d701748f0851"
+        },
+        "name" : {
+          "type" : "string",
+          "example" : "aRfoto pildikoda"
+        },
+        "contact" : {
+          "$ref" : "#/definitions/contact"
+        },
+        "location" : {
+          "$ref" : "#/definitions/location"
+        },
+        "products" : {
+          "$ref" : "#/definitions/products"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time",
+          "example" : "2021-06-07T10:47:27.675Z"
+        }
+      }
+    },
+    "products" : {
+      "properties" : {
+        "id" : {
+          "type" : "integer"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "size" : {
+          "type" : "string"
+        },
+        "paper" : {
+          "type" : "string"
+        },
+        "price" : {
+          "type" : "string"
+        }
+      },
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/productA"
+      }
+    },
+    "location" : {
+      "required" : [ "address", "city", "country" ],
+      "properties" : {
+        "country" : {
+          "type" : "string",
+          "example" : "Eesti"
+        },
+        "city" : {
+          "type" : "string",
+          "example" : "Tõrva"
+        },
+        "address" : {
+          "type" : "string",
+          "example" : "Tartu tn 15"
+        },
+        "postcode" : {
+          "type" : "string",
+          "example" : "68607"
+        }
+      }
+    },
+    "contact" : {
+      "required" : [ "companyname", "email", "phone" ],
+      "properties" : {
+        "companyname" : {
+          "type" : "string",
+          "example" : "aRfoto OÜ"
+        },
+        "homePage" : {
+          "type" : "string",
+          "format" : "url",
+          "example" : "www.airikavettik.ee"
+        },
+        "phone" : {
+          "type" : "string",
+          "example" : "+372 5919 4429"
+        },
+        "email" : {
+          "type" : "string",
+          "example" : "foto@airikavettik.ee"
+        }
+      }
+    },
+    "Default" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "contact" : {
+          "type" : "string"
+        },
+        "location" : {
+          "type" : "string"
+        },
+        "products" : {
+          "type" : "string"
+        },
+        "createdDate" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Body" : {
+      "type" : "object",
+      "required" : [ "name" ],
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "contact" : {
+          "$ref" : "#/definitions/bodycontact"
+        },
+        "location" : {
+          "$ref" : "#/definitions/bodylocation"
+        },
+        "products" : {
+          "$ref" : "#/definitions/bodyproducts"
+        }
+      }
+    },
+    "bodyproducts" : {
+      "properties" : {
+        "id" : {
+          "type" : "integer"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "size" : {
+          "type" : "string"
+        },
+        "paper" : {
+          "type" : "string"
+        },
+        "price" : {
+          "type" : "string"
+        }
+      },
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/bodyproduct"
+      }
+    },
+    "bodylocation" : {
+      "required" : [ "city" ],
+      "properties" : {
+        "country" : {
+          "type" : "string"
+        },
+        "city" : {
+          "type" : "string"
+        },
+        "address" : {
+          "type" : "string"
+        },
+        "postcode" : {
+          "type" : "string"
+        }
+      }
+    },
+    "bodycontact" : {
+      "required" : [ "companyname", "email", "phone" ],
+      "properties" : {
+        "companyname" : {
+          "type" : "string"
+        },
+        "homePage" : {
+          "type" : "string",
+          "format" : "url"
+        },
+        "phone" : {
+          "type" : "string"
+        },
+        "email" : {
+          "type" : "string"
+        }
+      }
+    },
+    "productA" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "example" : 1
+        },
+        "name" : {
+          "type" : "string",
+          "example" : "Pabertrükk"
+        },
+        "paper" : {
+          "type" : "string",
+          "example" : "matt 240g"
+        },
+        "size" : {
+          "type" : "string",
+          "example" : "10x15cm"
+        },
+        "price" : {
+          "type" : "number",
+          "example" : 0.5
+        }
+      }
+    },
+    "bodyproduct" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "size" : {
+          "type" : "string"
+        },
+        "paper" : {
+          "type" : "string"
+        },
+        "price" : {
+          "type" : "string"
+        }
+      }
+    },
+    "created" : {
+      "type" : "object",
+      "example" : {
+        "message" : "Successs!"
+      }
+    },
+    "updateBody" : {
+      "type" : "object",
+      "required" : [ "address", "city", "companyname", "country", "email", "name", "phone" ],
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "companyname" : {
+          "type" : "string"
+        },
+        "homePage" : {
+          "type" : "string",
+          "format" : "url"
+        },
+        "phone" : {
+          "type" : "string"
+        },
+        "email" : {
+          "type" : "string"
+        },
+        "country" : {
+          "type" : "string"
+        },
+        "city" : {
+          "type" : "string"
+        },
+        "address" : {
+          "type" : "string"
+        },
+        "postcode" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}
