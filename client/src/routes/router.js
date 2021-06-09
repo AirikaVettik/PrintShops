@@ -2,7 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Shops from './../views/Shops';
 import newShop from './../views/newShop';
-import editShop from './../views/newShop';
+import editShop from './../views/editShop';
 
 Vue.use(VueRouter);
 
@@ -18,7 +18,7 @@ export const routes = [
     components: { default: newShop }
   },
   {
-    path: '/editShop/:id',
+    path: '/editshop/:id',
     name: 'Muuda poe andmeid',
     components: { default: editShop }
   } 

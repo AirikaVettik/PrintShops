@@ -7,7 +7,7 @@ module.exports = async function (req, res) {
       $set:{ 
       ...req.body.name && { 'name': req.body.name }, 
       ...req.body.company && { 'contact.company': req.body.company },
-      ...req.body.homepage && { 'contact.homepage': req.body.company },
+      ...req.body.homepage && { 'contact.homepage': req.body.homepage },
       ...req.body.phone && { 'contact.phone': req.body.phone },
       ...req.body.email && { 'contact.email': req.body.email },
       ...req.body.country && { 'location.country': req.body.country },

@@ -41,14 +41,16 @@
                             <b-card-body>
 
                             <b-button variant="outline-info" class="mb-2">
+                            <router-link v-bind:to="'/editShop/' + shop._id">
                             <b-icon icon="wrench" font-scale="2" aria-hidden="true">
-                            <router-link v-bind:to="'editshop/'"></router-link>
-                            </b-icon>
+                            </b-icon></router-link>
+                            
                             </b-button>
                             <b-button variant="outline-info" class="mb-2">
                             <b-icon icon="trash-fill" font-scale="2" aria-hidden="true"
                             @click="deleteProduct(shop._id, index)"></b-icon>
                             </b-button>
+                            
                             </b-card-body>
                     
             <b-card-footer>
@@ -89,15 +91,12 @@ export default {
         },
 
         async deleteProduct(_id, index) {
-            if (confirm ("Kas oled kindel, et soovid toodet kustutada?")) {
-                console.log(_id)
                 await axios ({
-                url:  `api/shop/${_id}` ,
+                url:  `api/shop/delete/${_id}` ,
                 method: 'DELETE'
                 })
                 await this.getMyShops()
                 }
-            },
     }}
     
 </script>

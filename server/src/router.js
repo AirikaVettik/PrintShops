@@ -27,7 +27,7 @@ router.get('/shops/location/:city', getShopsByCity);
 
 router.post('/shop', addShop);
 router.patch('/shop/:id', updateShop);
-router.delete('/shop/:id', deleteShop);
+router.delete('/shop/delete/:id', deleteShop);
 
 router.post('/shop/:id', addShopProduct);
 router.patch('/shop/product/:id', updateShopProduct);

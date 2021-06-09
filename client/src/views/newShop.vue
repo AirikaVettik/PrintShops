@@ -153,12 +153,7 @@ methods: {
                     address: this.shop.location.address,
                     postcode: this.shop.location.postcode
                 },
-                products: [{
-                    name: this.product.name,
-                    size: this.product.size,
-                    paper: this.product.paper,
-                    price: this.product.price,
-                }], 
+                products: this.shop.products,
         };
         console.log(newShop);
         this.submitToServer(newShop)
